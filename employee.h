@@ -16,6 +16,7 @@ private:
 	T waitTime = 0;
 	T retainTime = 0;
 	queue<T> employeeQueue;
+	queue<T> waitlist;
 public:
 	employee();
 	~employee();
