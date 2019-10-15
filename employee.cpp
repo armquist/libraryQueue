@@ -1,30 +1,38 @@
 
 #include "stdafx.h"
 #include "employee.h"
-#include "date.h"
 
 using namespace std;
 
-T getRetainTime() {
+employee::employee() {
+	name = "none";
+	waitTime = 0;
+	retainTime = 0;
+}
+
+employee::employee(string theName) {
+	name = theName;
+	waitTime = 0;
+	retainTime = 0;
+}
+
+int employee::getRetainTime() {
 	return retainTime;
 }
 
-template <typename T>
-
-T getWaitTime() {
+int employee::getWaitTime() {
 	return waitTime;
 }
 
-template <typename T>
-
-T setWaitTime(int theWaitTime) {
-	TheWaitTime = waitTime;
+void employee::setWaitTime(int theWaitTime) {
+	waitTime = theWaitTime;
 }
 
-template <typename T>
-
-T setRetainTime(int theRetainTime) {
-	TheRetainTime = retainTime;
+void employee::setRetainTime(int theRetainTime) {
+	retainTime = theRetainTime;
 }
 
+int employee::getPriority() {
+	return waitTime - retainTime;
+}
 

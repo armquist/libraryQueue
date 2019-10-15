@@ -9,23 +9,22 @@
 #include <queue>
 
 using namespace std;
-template <typename T>
+//template <typename T> causes crashes when put into .cpp
 class employee {
 private:
-	T name;
-	T waitTime = 0;
-	T retainTime = 0;
-	queue<T> employeeQueue;
-	queue<T> waitlist;
+	string name;
+	int waitTime;
+	int retainTime;
 public:
 	employee();
-	~employee();
-	push(const T&the_data);
-	pop();
-	T getWaitTime();
-	T getRetainTime();
-	T setRetainTime(int theRetainTime);
-	T setWaitTime(int theWaitTime);
+	employee(string theName);
+//	push(const T&the_data); probably should go in priorityQueue class
+//	pop(); probably should go in priorityQueue class
+	int getWaitTime();
+	int getRetainTime();
+	void setRetainTime(int theRetainTime);
+	void setWaitTime(int theWaitTime);
+	int getPriority();
 };
 
 #endif
