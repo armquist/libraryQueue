@@ -6,11 +6,13 @@
 using namespace std;
 
 void add_employee(string name){
-
+  queue<string>waitlist;
+  waitlist.push(name);
 }
 
 void add_book(string bookName) {
-
+  queue<string>booklist;
+  booklist.push(bookName);
 }
 
 void pass_on() {
