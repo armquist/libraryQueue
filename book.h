@@ -1,22 +1,30 @@
-
 #ifndef Booklist_h
 #define Booklist_h
 #include <iostream>
-#include <vector>
-#include "Employee"
+#include <queue>
+#include <string>
+#include "Employee.h"
 #include "Date.h"
 
-template <typename T>
-class Book{
+class book {
 public:
-    Date start_date;
-    Date end_date;
-   void get_start_date (const &String date, DateFormat format);
-    void get_end_date (const $String date, DateFormat format);
-    void pop();
-    void push(const T&the_data);
+	book();
+	book(const string& bookName);
+	~book();
+	void addToCirculation(const Date& date);
+	void setArchived(const Date& date);
+	Date get_start_date();
+	Date get_end_date();
+	void add_employee(employee*& personnel);
+	void passOn(const Date& passDate);
+	bool getArchived();
+
 private:
-    Queue <T> employees;
-    T name;
+	queue<employee*> waitingEmployees;
+	string name;
+	bool archived;
+	Date start_date;
+	Date end_date;
+	Date lastPass;
 };
 #endif /* Booklist_h */
