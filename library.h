@@ -8,11 +8,16 @@
 #include "book.h"
 #include <string>
 #include <queue>
+#include <list>
 
 using namespace std;
 template <typename T>
 class library {
 private:
+	list <Book> books_archieved;
+	list <Book> books_circulated;
+	list <Employees>* employees;
+	
 	
 public:
 	Library();
@@ -20,8 +25,8 @@ public:
 
 	void add_employee(string name);
 	void add_book(string bookName);
-	void pass_on();
-	void circulate_book();
+	void pass_on(string bookName Date book_pass);
+	void circulate_book(string bookName Date date_cir);
 };
 
 #endif
