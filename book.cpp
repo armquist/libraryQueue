@@ -26,6 +26,10 @@ void book::addToCirculation(const Date& date) {
 	lastPass = date;
 }
 
+string book::getName() {
+	return name;
+}
+
 void book::add_employee(employee*& personnel) {
 	waitingEmployees.push(personnel);
 }
@@ -34,7 +38,7 @@ void book::setArchived(const Date& date) {
 	archived = true;
 	end_date = date;
 }
-
+/*
 void book::passOn(const Date& passDate) {
 	employee* temp = waitingEmployees.front();
 	waitingEmployees.pop();
@@ -46,10 +50,16 @@ void book::passOn(const Date& passDate) {
 		waitingEmployees.front()->setWaitTime(start_date - passDate);
 		lastPass = passDate;
 	}
-	
-
 }
- 
+*/
+void book::set_start_date(Date theDate) {
+	start_date = theDate;
+	lastPass = theDate;
+}
+void book::set_end_date(Date theDate) {
+	end_date = theDate;
+}
+
 Date book::get_start_date() {
 	return start_date;
 }

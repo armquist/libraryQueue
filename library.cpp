@@ -1,108 +1,59 @@
+#include "stdafx.h"
+#include "library.h"
 
-//----------------------
-#include "library.hpp"
+using namespace std;
 
-Library::Library(){
-
-}
-
-Library::~Library(){
-
-list<Employee*>::iterator it;
-
-for (it = employeeList.begin(); it != employeeList.end(); it++){
-
-//delete *it;
-  Employees.erase(it);
+library::library() {
 
 }
 
+library::~library() {
+	list<employee*>::iterator it;
+	for (it == employees.begin(); it != employees.end(); it++) {
+		delete *it;
+	}
 }
 
-void Library::add_book(string newBook){
-
-Book Current_Book(newBook);
-
-toBeCirculated.push_back(Current_Book);
-
+void library::add_book(string newBook) {
+	book tempBook(newBook);
+	books_circulated.push_back(tempBook);
+	list<book>::iterator iter = books_circulated.begin();
+	while (iter != books_circulated.end()) {
+		iter->add_employee(employees.back());
+		++iter;
+	}
 }
 
-void Library::add_employee(string name){
-
-Employee *temp_Employee;
-
-temp_Employee = new Employee(name);
-
-employeeList.push_front(temp_employee);
-
+void library::add_employee(string name) {
+	employee *temp;
+	temp = new employee(name);
+	employees.push_front(temp);
 }
-
-void Library::circulate_book(string book_circulated, Date dayOfCirculation){
-
-list<Book>::iterator it;
-
-for (it = toBeCirculated.begin(); it != toBeCirculated.end(); it++){ // find book : O(n)
-
-if (it->getname() == book_circulated){ // this is the book
-
-it->temp_queue(employeeList); // create queue
-
-it->setstartDate(dayOfCirculation); // save start date
-
-break;
-
+/*
+void library::pass_on(string bookName, Date book_pass) {
+	list<book>::iterator iter = books_circulated.begin();
+	while (iter != books_circulated.end()) {
+		if (iter->getName() == bookName) { 
+			iter->passOn(book_pass);
+			if (iter->getArchived()) {
+				books_archieved.push_back(*iter);
+				books_circulated.remove(*iter);
+				return;
+			}
+		}
+		++iter;
+	}
 }
+*/
 
+void library::circulate_book(string bookName, Date date_cir) {
+	list<book>::iterator it;
+	for (it = books_circulated.begin(); it != books_circulated.end(); it++) {
+		if (it->getName() == bookName) {
+			it->set_start_date(date_cir); 
+			return;
+		}
+	}
+	throw std::exception("Book not found"); 
 }
-
-cerr << "Book not found" << endl;
-
-}
-
-void Library::pass_on(string book_circulated, Date date){
-
-Employee *next, *prev; // prev is employee that is popped
-
-list<Book>::iterator it;
-
-for (it = toBeCirculated.begin(); it != toBeCirculated.end(); it++){ // find book : O(n)
-
-if (it->getname() == book_circulated){
-
-prev = it->pop_max(); // pop max, save to prev
-
-prev->retain(date - it->getHeld()); // retain = current date - last pass of book
-
-if (!it->isEmpty()){
-
-next = it->top(); // next is now max
-
-next->wait(date - it->getstartDate()); // wait = current date - book start date
-
-it->setHeld(date); // save pass date for next employee
-
-}
-
-else{ // circulation complete
-
-it->setarchived(true);
-
-it->setendDate(date);
-
-archived.push_back(*it); // archive
-
-toBeCirculated.erase(it); // erase
-
-}
-
-break;
-
-}
-
-}
-
-cerr << "Book not found" << endl;
-
-}
-
 

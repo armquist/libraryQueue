@@ -14,7 +14,10 @@ public:
 	void addToCirculation(const Date& date);
 	void setArchived(const Date& date);
 	Date get_start_date();
+	void set_start_date(Date theDate);
+	void set_end_date(Date theDate);
 	Date get_end_date();
+	string getName();
 	void add_employee(employee*& personnel);
 	void passOn(const Date& passDate);
 	bool getArchived();

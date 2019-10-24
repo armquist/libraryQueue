@@ -9,24 +9,24 @@
 #include <string>
 #include <queue>
 #include <list>
+#include "date.h"
 
 using namespace std;
-template <typename T>
+
 class library {
-private:
-	list <Book> books_archieved;
-	list <Book> books_circulated;
-	list <Employees>* employees;
-	
-	
 public:
-	Library();
-	~Library();
+	library();
+	~library();
 
 	void add_employee(string name);
 	void add_book(string bookName);
-	void pass_on(string bookName Date book_pass);
-	void circulate_book(string bookName Date date_cir);
+	void pass_on(string bookName, Date book_pass);
+	void circulate_book(string bookName, Date date_cir);
+
+private:
+	list <book> books_archieved;
+	list <book> books_circulated;
+	list <employee*> employees;
 };
 
 #endif

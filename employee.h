@@ -9,7 +9,7 @@
 #include <queue>
 
 using namespace std;
-//template <typename T> causes crashes when put into .cpp
+
 class employee {
 private:
 	string name;
@@ -17,9 +17,7 @@ private:
 	int retainTime;
 public:
 	employee();
-	employee(string theName, int wTime, int rTime);
-//	push(const T&the_data); probably should go in priorityQueue class
-//	pop(); probably should go in priorityQueue class
+	employee(string theName);
 	int getWaitTime();
 	int getRetainTime();
 	void setRetainTime(int theRetainTime);
