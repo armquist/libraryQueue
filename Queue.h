@@ -1,14 +1,51 @@
 //
-//  Queue.h
+//  Queue.hpp
 //  Project 1
 //
 //  Created by Ahmed Boukhousse on 10/8/19.
 //  Copyright © 2019 Ahmed Boukhousse. All rights reserved.
 //
 
+#ifndef Queue_hpp
 
+#define Queue_hpp
+
+#include <stdio.h>
+
+#include <list>
+
+#include "employee.hpp"
+
+#include <vector>
+
+#include <algorithm>
+
+#include <iostream>
+
+using namespace std;
+
+class Queue{
+
+private:
+
+vector<Employee*> WorkQueue;
+
+public:
+
+Queue();
+
+void addEmployee(Employee* temp);
+
+Employee* pop_max();
+
+Employee* top();
+
+bool empty();
+
+};
+#endif /* Queue_h */
 //********************************
-#ifndef Queue_h
+/* #ifndef Queue_h
 #define Queue_h
 template <typename T>
 class Queue {
@@ -30,5 +67,5 @@ public:
 private:
    Queue <T> employee;
 
-};
-#endif /* Queue_h */
+};*/ 
+
