@@ -17,7 +17,7 @@ private:
 	int retainTime;
 public:
 	employee();
-	employee(string theName);
+	employee(string theName, int wTime, int rTime);
 //	push(const T&the_data); probably should go in priorityQueue class
 //	pop(); probably should go in priorityQueue class
 	int getWaitTime();
