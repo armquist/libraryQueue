@@ -10,10 +10,10 @@ employee::employee() {
 	retainTime = 0;
 }
 
-employee::employee(string theName) {
+employee::employee(string theName, int wTime, int rTime) {
 	name = theName;
-	waitTime = 0;
-	retainTime = 0;
+	waitTime = wTime;
+	retainTime = rTime;
 }
 
 int employee::getRetainTime() {
