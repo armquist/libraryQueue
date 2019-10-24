@@ -1,10 +1,10 @@
 #include "Queue.hpp"
 
-pQueue::Queue(){}
+Queue::Queue(){}
 
-void pQueue::addEmployee(Employee* temp){
+void Queue::addEmployee(Employee* employee){
 
-WorkQueue.push_back(temp);
+WorkQueue.push_back(employee);
 
 }
 
@@ -16,7 +16,7 @@ vector<Employee*>::iterator it, toErase;
 
 it = toErase = WorkQueue.begin();
 
-it++; // start at second element so we don't compare max to itself
+it++; // start at second element so we don't compare top to itself
 
 for (it; it != WorkQueue.end(); it++){
 
