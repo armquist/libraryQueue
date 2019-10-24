@@ -12,7 +12,8 @@ list<Employee*>::iterator it;
 
 for (it = employeeList.begin(); it != employeeList.end(); it++){
 
-delete *it;
+//delete *it;
+  Employees.erase(it);
 
 }
 
@@ -20,33 +21,33 @@ delete *it;
 
 void Library::add_book(string newBook){
 
-Book tempBook(newBook);
+Book Current_Book(newBook);
 
-toBeCirculated.push_back(tempBook);
+toBeCirculated.push_back(Current_Book);
 
 }
 
 void Library::add_employee(string name){
 
-Employee *temp;
+Employee *temp_Employee;
 
-temp = new Employee(name);
+temp_Employee = new Employee(name);
 
-employeeList.push_front(temp);
+employeeList.push_front(temp_employee);
 
 }
 
-void Library::circulate_book(string bookToMove, Date dayOfMove){
+void Library::circulate_book(string book_circulated, Date dayOfCirculation){
 
 list<Book>::iterator it;
 
 for (it = toBeCirculated.begin(); it != toBeCirculated.end(); it++){ // find book : O(n)
 
-if (it->getname() == bookToMove){ // this is the book
+if (it->getname() == book_circulated){ // this is the book
 
-it->populate_queue(employeeList); // create queue
+it->temp_queue(employeeList); // create queue
 
-it->setstartDate(dayOfMove); // save start date
+it->setstartDate(dayOfCirculation); // save start date
 
 break;
 
@@ -58,7 +59,7 @@ cerr << "Book not found" << endl;
 
 }
 
-void Library::pass_on(string bookToMove, Date date){
+void Library::pass_on(string book_circulated, Date date){
 
 Employee *next, *prev; // prev is employee that is popped
 
@@ -66,7 +67,7 @@ list<Book>::iterator it;
 
 for (it = toBeCirculated.begin(); it != toBeCirculated.end(); it++){ // find book : O(n)
 
-if (it->getname() == bookToMove){
+if (it->getname() == book_circulated){
 
 prev = it->pop_max(); // pop max, save to prev
 
