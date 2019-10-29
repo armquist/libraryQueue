@@ -20,8 +20,8 @@ public:
 	employee(string theName);
 	int getWaitTime();
 	int getRetainTime();
-	void setRetainTime(int theRetainTime);
-	void setWaitTime(int theWaitTime);
+	void setRetainTime(Date currentDate, Date lastPass);
+	void setWaitTime(Date firstDate, Date currentDate);
 	int getPriority();
 };
 

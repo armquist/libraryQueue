@@ -40,14 +40,13 @@ void book::setArchived(const Date& date) {
 }
 
 void book::passOn(const Date& passDate) {
-	employee*& temp = waitingEmployees.front();
+	waitingEmployees.front()->setRetainTime(passDate, lastPass);
 	waitingEmployees.pop_front();
-	temp->setRetainTime(lastPass - passDate);
 	if (waitingEmployees.empty()) {
 		setArchived(passDate);
 	}
 	else {
-		waitingEmployees.front()->setWaitTime(start_date - passDate);
+		waitingEmployees.front()->setWaitTime(start_date, passDate);
 		lastPass = passDate;
 	}
 }

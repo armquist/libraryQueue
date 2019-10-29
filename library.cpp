@@ -7,16 +7,22 @@ library::library() {
 
 }
 
-library::~library() {
-	list<employee*>::iterator it;
-	for (it == employees.begin(); it != employees.end(); it++) {
-		delete *it;
-	}
-}
+//library::~library() {
+//	list<employee*>::iterator it;
+//	for (it == employees.begin(); it != employees.end(); it++) {
+//		delete *it;
+//	}
+//}
 
-void library::add_book(string& newBook) {
+void library::add_book(string newBook) {
 	book tempBook(newBook);
 	books_circulated.push_back(tempBook);
+}
+
+void library::add_employee(string name) {
+	employee *temp;
+	temp = new employee(name);
+	employees.push_back(temp);
 	list<book>::iterator iter = books_circulated.begin();
 	while (iter != books_circulated.end()) {
 		iter->add_employee(employees.back());
@@ -24,13 +30,7 @@ void library::add_book(string& newBook) {
 	}
 }
 
-void library::add_employee(string& name) {
-	employee *temp;
-	temp = new employee(name);
-	employees.push_front(temp);
-}
-
-void library::pass_on(string& bookName, Date& book_pass) {
+void library::pass_on(string bookName, Date& book_pass) {
 	list<book>::iterator iter = books_circulated.begin();
 	while (iter != books_circulated.end()) {
 		if (iter->getName() == bookName) { 
@@ -46,7 +46,7 @@ void library::pass_on(string& bookName, Date& book_pass) {
 }
 
 
-void library::circulate_book(string& bookName, Date& date_cir) {
+void library::circulate_book(string bookName, Date& date_cir) {
 	list<book>::iterator it;
 	for (it = books_circulated.begin(); it != books_circulated.end(); it++) {
 		if (it->getName() == bookName) {

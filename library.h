@@ -16,12 +16,12 @@ using namespace std;
 class library {
 public:
 	library();
-	~library();
+//	~library();
 
-	void add_employee(string& name);
-	void add_book(string& bookName);
-	void pass_on(string& bookName, Date& book_pass);
-	void circulate_book(string& bookName, Date& date_cir);
+	void add_employee(string name);
+	void add_book(string bookName);
+	void pass_on(string bookName, Date& book_pass);
+	void circulate_book(string bookName, Date& date_cir);
 
 private:
 	list <book> books_archived;

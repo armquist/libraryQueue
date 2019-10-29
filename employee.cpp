@@ -24,12 +24,12 @@ int employee::getWaitTime() {
 	return waitTime;
 }
 
-void employee::setWaitTime(int theWaitTime) {
-	waitTime = theWaitTime;
+void employee::setWaitTime(Date firstDate, Date currentDate) {
+	waitTime = currentDate - firstDate;
 }
 
-void employee::setRetainTime(int theRetainTime) {
-	retainTime = theRetainTime;
+void employee::setRetainTime(Date currentDate, Date lastPass) {
+	retainTime = currentDate - lastPass;
 }
 
 int employee::getPriority() {
