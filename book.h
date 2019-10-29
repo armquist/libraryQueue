@@ -1,7 +1,8 @@
 #ifndef Booklist_h
 #define Booklist_h
 #include <iostream>
-#include <queue>
+#include <list>
+#include <iterator>
 #include <string>
 #include "Employee.h"
 #include "Date.h"
@@ -23,7 +24,7 @@ public:
 	bool getArchived();
 
 private:
-	queue<employee*> waitingEmployees;
+	list<employee*> waitingEmployees;
 	string name;
 	bool archived;
 	Date start_date;

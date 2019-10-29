@@ -31,19 +31,19 @@ string book::getName() {
 }
 
 void book::add_employee(employee*& personnel) {
-	waitingEmployees.push(personnel);
+	waitingEmployees.push_back(personnel);
 }
 
 void book::setArchived(const Date& date) {
 	archived = true;
 	end_date = date;
 }
-/*
+
 void book::passOn(const Date& passDate) {
-	employee* temp = waitingEmployees.front();
-	waitingEmployees.pop();
+	employee*& temp = waitingEmployees.front();
+	waitingEmployees.pop_front();
 	temp->setRetainTime(lastPass - passDate);
-	if (waitingEmployees.empty) {
+	if (waitingEmployees.empty()) {
 		setArchived(passDate);
 	}
 	else {
@@ -51,7 +51,7 @@ void book::passOn(const Date& passDate) {
 		lastPass = passDate;
 	}
 }
-*/
+
 void book::set_start_date(Date theDate) {
 	start_date = theDate;
 	lastPass = theDate;
