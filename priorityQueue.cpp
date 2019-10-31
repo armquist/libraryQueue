@@ -36,3 +36,4 @@ employee* priorityQueue::get_top() { //! Get the empoyee with the highest priori
 
 bool priorityQueue::isEmpty() { //! Return whether the queue is empty: O(1)
 	return employee_queue.size() == 0;
+}
