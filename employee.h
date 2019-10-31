@@ -20,11 +20,8 @@ public:
 	employee();
 	employee(string theName);
 	
-	//calculating the wait time for employee
-	int getWaitTime();
-	
-	//calculating the retian for employee
-	int getRetainTime();
+	//getting name for employee
+	string getName();
 	
 	//calculating retain time based on our date class
 	void setRetainTime(Date currentDate, Date lastPass);
